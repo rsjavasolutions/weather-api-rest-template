@@ -21,8 +21,8 @@ public class WeatherMapper {
                 request.getMain().getPressure(),
                 request.getVisibility(),
                 getRoundedNumberToTwoDecimalPlaces(request.getWind().getSpeed()),
-                getDate(request.getSys().getSunset()),
-                getDate(request.getSys().getSunrise())
+                getDate(request.getSys().getSunrise()),
+                getDate(request.getSys().getSunset())
         );
     }
 

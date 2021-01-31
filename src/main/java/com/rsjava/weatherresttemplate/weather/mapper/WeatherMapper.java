@@ -3,8 +3,8 @@ package com.rsjava.weatherresttemplate.weather.mapper;
 import com.rsjava.weatherresttemplate.weather.request.WeatherRequest;
 import com.rsjava.weatherresttemplate.weather.response.WeatherResponse;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
@@ -43,6 +43,14 @@ public class WeatherMapper {
     }
 
     private static String getDate(int timeStamp) {
-        return new SimpleDateFormat("HH:mm").format(new Date((long) timeStamp * 1000));
+        Date date = new Date((long) timeStamp * 1000);
+
+        return DateTimeFormatter.ofPattern("HH:mm").format(convertToLocalDateTimeViaInstant(date));
+    }
+
+    private static LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.of("Europe/Berlin"))
+                .toLocalDateTime();
     }
 }

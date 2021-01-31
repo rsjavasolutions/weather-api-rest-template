@@ -44,7 +44,7 @@ public class WeatherClient {
         return url
                     + "weather?q="
                     + city
-                    + ",pl&appid="
+                    + "&appid="
                     + apiKey
                     + "&lang="
                     + language

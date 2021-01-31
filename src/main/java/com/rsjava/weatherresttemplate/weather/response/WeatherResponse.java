@@ -16,6 +16,6 @@ public class WeatherResponse {
     private final int pressure;
     private final int visibility;
     private final double windSpeed;
-    private final String sunset;
     private final String sunrise;
+    private final String sunset;
 }
